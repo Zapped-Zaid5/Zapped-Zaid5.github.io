@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Company</title>
+    <title>Morphic | Transception Games</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,8 @@
         
         body {
             line-height: 1.6;
-            color: #333;
+            color: #f5f5f5;
+            background-color: #000;
         }
         
         .container {
@@ -24,7 +25,8 @@
         }
         
         header {
-            background-color: #2c3e50;
+            background-color: #000;
+            border-bottom: 2px solid #ff0000;
             color: white;
             padding: 1rem 0;
             position: sticky;
@@ -39,8 +41,11 @@
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .nav-links {
@@ -56,15 +61,18 @@
             color: white;
             text-decoration: none;
             transition: color 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .nav-links a:hover {
-            color: #3498db;
+            color: #ff0000;
         }
         
         .hero {
             height: 80vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -73,31 +81,41 @@
         }
         
         .hero-content h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .hero-content p {
             font-size: 1.2rem;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto 2rem;
+            line-height: 1.8;
         }
         
         .btn {
             display: inline-block;
-            background-color: #3498db;
+            background-color: #ff0000;
             color: white;
             padding: 0.8rem 1.5rem;
-            border-radius: 5px;
+            border-radius: 0;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            border: 2px solid #ff0000;
         }
         
         .btn:hover {
-            background-color: #2980b9;
+            background-color: transparent;
+            color: #ff0000;
         }
         
-        .features {
+        .characters {
             padding: 5rem 0;
         }
         
@@ -109,36 +127,46 @@
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
-        .feature-grid {
+        .character-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         
-        .feature-card {
-            background-color: #f9f9f9;
-            border-radius: 10px;
+        .character-card {
+            background-color: #111;
+            border: 1px solid #ff0000;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
         
-        .feature-card:hover {
+        .character-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
         }
         
-        .feature-icon {
+        .character-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
-            color: #3498db;
+            color: #ff0000;
+        }
+        
+        .character-card h3 {
+            color: #ff0000;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
         }
         
         .about {
             padding: 5rem 0;
-            background-color: #f5f5f5;
+            background-color: #111;
         }
         
         .about-content {
@@ -149,7 +177,7 @@
         }
         
         .about-image {
-            border-radius: 10px;
+            border: 2px solid #ff0000;
             overflow: hidden;
         }
         
@@ -157,10 +185,41 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text h2 {
+            color: #ff0000;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .setting {
+            padding: 5rem 0;
+        }
+        
+        .setting-content {
+            background-color: #111;
+            padding: 3rem;
+            border: 1px solid #ff0000;
+        }
+        
+        .setting-content h2 {
+            color: #ff0000;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .cta {
-            background-color: #3498db;
+            background-color: #ff0000;
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -169,6 +228,8 @@
         .cta h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .cta p {
@@ -178,28 +239,34 @@
         
         .cta .btn {
             background-color: white;
-            color: #3498db;
+            color: #ff0000;
+            border-color: white;
         }
         
         .cta .btn:hover {
-            background-color: #f5f5f5;
+            background-color: transparent;
+            color: white;
         }
         
         footer {
-            background-color: #2c3e50;
+            background-color: #000;
             color: white;
             padding: 3rem 0;
+            border-top: 2px solid #ff0000;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         
         .footer-column h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .footer-column ul {
@@ -217,19 +284,19 @@
         }
         
         .footer-column a:hover {
-            color: #3498db;
+            color: #ff0000;
         }
         
         .copyright {
             text-align: center;
             margin-top: 2rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 0, 0, 0.3);
         }
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .about-content {
+            .about-content, .footer-content {
                 grid-template-columns: 1fr;
             }
             
@@ -247,12 +314,12 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">ModernCo</div>
+                <div class="logo">Morphic</div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
+                    <li><a href="#characters">Characters</a></li>
+                    <li><a href="#setting">Setting</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -260,34 +327,49 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Welcome to ModernCo</h1>
-            <p>We create innovative solutions for tomorrow's challenges. Our cutting-edge technology drives results for businesses around the world.</p>
-            <a href="#contact" class="btn">Get Started</a>
+            <h1>Morphic</h1>
+            <p>Morphic is an upcoming video game coming in the 2030's, developed by Zapped Zaid. This game is a turn-based character-driven RPG with social simulation, dungeon crawling, creature collection, and Action RPG elements. The game also includes a very intense storyline that adapts to your choices as a player.</p>
+            <a href="#characters" class="btn">Discover More</a>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <section id="characters" class="characters">
         <div class="container">
             <div class="section-header">
-                <h2>Our Features</h2>
-                <p>Discover what makes our products stand out from the competition</p>
+                <h2>Character Bios</h2>
+                <p>Meet the main characters of Morphic</p>
             </div>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Lightning Fast</h3>
-                    <p>Our platform delivers results at incredible speeds, saving you time and resources.</p>
+            <div class="character-grid">
+                <div class="character-card">
+                    <div class="character-icon">👤</div>
+                    <h3>Protagonist</h3>
+                    <p>The avatar of You. Customize their looks and personality to your liking and explore. You have over 200 endings here for you to see. Enjoy your freedom.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure & Private</h3>
-                    <p>Your data is protected with enterprise-grade security and state-of-the-art encryption.</p>
+                <div class="character-card">
+                    <div class="character-icon">⚔️</div>
+                    <h3>Ayarakaz Shin/Valor</h3>
+                    <p>The team leader... can you understand him or not? Who the flip knows? He climbs mountains in 5 minutes, fights bears and his goal? VALOR!!</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3>Innovative Design</h3>
-                    <p>Intuitive interfaces and cutting-edge technology make our solutions a joy to use.</p>
+                <div class="character-card">
+                    <div class="character-icon">🔍</div>
+                    <h3>Heiki Vorz</h3>
+                    <p>Your caring uncle who took you after your parents died of a stroke in the intro of the game... He's dedicated to the job of detective and is almost superhuman, has fried chicken though.</p>
                 </div>
+                <div class="character-card">
+                    <div class="character-icon">❓</div>
+                    <h3>Ruri Shousha</h3>
+                    <p>???[Play the game to find out LOL]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="setting" class="setting">
+        <div class="container">
+            <div class="setting-content">
+                <h2>The World of Keroni</h2>
+                <p>The game takes place in Keroni, a fictional nation with a new culture inspired by Japanese, Chinese, Indian, and Egyptian mythologies. Enjoy the streets' vast array of banana chips in Morphic.</p>
+                <p>But it is not deemed to be that simple. A murder series has taken over Keroni, and now you, along with your team of supernaturally powered humans who have been bestowed with the power of the morphic, try to figure out the mystery yourself.</p>
             </div>
         </div>
     </section>
@@ -296,63 +378,44 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="About our company">
+                    <img src="/api/placeholder/600/400" alt="Transception Games">
                 </div>
                 <div class="about-text">
-                    <h2>About ModernCo</h2>
-                    <p>Founded in 2020, ModernCo has been at the forefront of technological innovation. Our mission is to create solutions that empower businesses and individuals to achieve their full potential.</p>
-                    <p>With a team of dedicated experts and a passion for excellence, we've helped hundreds of clients transform their operations and drive growth.</p>
-                    <a href="#" class="btn">Learn More</a>
+                    <h2>About Transception Games</h2>
+                    <p>Transception Games was founded by Zapped Zaid with the vision of creating immersive and unique gaming experiences that blur the line between reality and fiction.</p>
+                    <p>With Morphic being our flagship title, we aim to redefine the RPG genre by combining elements from various gameplay styles and creating a truly adaptive narrative experience.</p>
+                    <a href="https://www.youtube.com/@ZappedZaid5" target="_blank" class="btn">Visit Our YouTube</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Get Started?</h2>
-            <p>Join thousands of satisfied customers who have transformed their business with our solutions.</p>
-            <a href="#contact" class="btn">Contact Us Today</a>
-        </div>
-    </section>
-
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>ModernCo</h3>
-                    <p>Creating innovative solutions for tomorrow's challenges.</p>
+                    <h3>Morphic</h3>
+                    <p>A turn-based character-driven RPG coming in the 2030's.</p>
                 </div>
                 <div class="footer-column">
                     <h3>Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
+                        <li><a href="#characters">Characters</a></li>
+                        <li><a href="#setting">Setting</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact</h3>
+                    <h3>Connect</h3>
                     <ul>
-                        <li>123 Innovation Way</li>
-                        <li>Tech City, TC 12345</li>
-                        <li>info@modernco.com</li>
-                        <li>(555) 123-4567</li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Instagram</a></li>
+                        <li><a href="https://www.youtube.com/@ZappedZaid5" target="_blank">YouTube</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 ModernCo. All rights reserved.</p>
+                <p>&copy; 2025 Transception Games. All rights reserved.</p>
+                <p>Website assistance by Vidyut</p>
             </div>
         </div>
     </footer>
