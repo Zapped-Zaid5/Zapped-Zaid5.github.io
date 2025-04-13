@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morphic | Transception Games</title>
+    <title>Heiki Vorz - The Detective | Morphic</title>
     <style>
         * {
             margin: 0;
@@ -22,402 +22,403 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-        }
-        
-        header {
-            background-color: #000;
-            border-bottom: 2px solid #ff0000;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ff0000;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .nav-links a:hover {
-            color: #ff0000;
+            padding: 2rem 0;
         }
         
         .hero {
-            height: 80vh;
+            height: 60vh;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            position: relative;
         }
         
-        .hero-content h1 {
+        .hero-title {
             font-size: 4rem;
-            margin-bottom: 1rem;
             color: #ff0000;
             text-transform: uppercase;
             letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            z-index: 2;
         }
         
-        .hero-content p {
+        .section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #ff0000;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .profile-item {
+            background-color: #111;
+            padding: 1.5rem;
+            border: 1px solid #ff0000;
+        }
+        
+        .profile-label {
+            font-weight: bold;
+            color: #ff0000;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-card {
+            background-color: #111;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #ff0000;
+        }
+        
+        .case-card h3 {
+            color: #ff0000;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .quote {
+            font-style: italic;
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.8;
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid #ff0000;
         }
         
-        .btn {
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .trait-card {
+            background-color: #111;
+            padding: 1.5rem;
+            border: 1px solid #ff0000;
+        }
+        
+        .trait-card h3 {
+            color: #ff0000;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #ff0000;
+        }
+        
+        .timeline-item {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 10px;
+            height: 14px;
+            width: 14px;
+            background: #ff0000;
+            border-radius: 50%;
+        }
+        
+        .timeline-item h3 {
+            color: #ff0000;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ptsd-section {
+            background-color: #111;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid #ff0000;
+        }
+        
+        .tbk-section {
+            background-color: #111;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid #ff0000;
+        }
+        
+        .tbk-section h3 {
+            color: #ff0000;
+            margin-bottom: 1rem;
+        }
+        
+        /* Back button */
+        .back-button {
             display: inline-block;
             background-color: #ff0000;
             color: white;
             padding: 0.8rem 1.5rem;
-            border-radius: 0;
+            margin-top: 3rem;
             text-decoration: none;
-            transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
+            transition: all 0.3s;
             border: 2px solid #ff0000;
         }
         
-        .btn:hover {
+        .back-button:hover {
             background-color: transparent;
             color: #ff0000;
         }
         
-        .characters {
-            padding: 5rem 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #ff0000;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .character-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .character-card {
-            background-color: #111;
-            border: 1px solid #ff0000;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .character-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
-        }
-        
-        .character-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #ff0000;
-        }
-        
-        .character-card h3 {
-            color: #ff0000;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-        }
-        
-        .about {
-            padding: 5rem 0;
-            background-color: #111;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-image {
-            border: 2px solid #ff0000;
-            overflow: hidden;
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s;
-        }
-        
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .about-text h2 {
-            color: #ff0000;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .setting {
-            padding: 5rem 0;
-        }
-        
-        .setting-content {
-            background-color: #111;
-            padding: 3rem;
-            border: 1px solid #ff0000;
-        }
-        
-        .setting-content h2 {
-            color: #ff0000;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .cta {
-            background-color: #ff0000;
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .cta p {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        .cta .btn {
-            background-color: white;
-            color: #ff0000;
-            border-color: white;
-        }
-        
-        .cta .btn:hover {
-            background-color: transparent;
-            color: white;
-        }
-        
-        footer {
-            background-color: #000;
-            color: white;
-            padding: 3rem 0;
-            border-top: 2px solid #ff0000;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #ff0000;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-column a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column a:hover {
-            color: #ff0000;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 0, 0, 0.3);
-        }
-        
-        /* Responsive adjustments */
+        /* Responsive */
         @media (max-width: 768px) {
-            .about-content, .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-content h1 {
+            .hero-title {
                 font-size: 2.5rem;
             }
             
-            .nav-links {
-                display: none;
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Morphic</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#characters">Characters</a></li>
-                    <li><a href="#setting">Setting</a></li>
-                    <li><a href="#about">About</a></li>
+    <div class="hero">
+        <h1 class="hero-title">Heiki Vorz - The Detective</h1>
+    </div>
+    
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Profile</h2>
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <p class="profile-label">Age</p>
+                    <p>38 years old</p>
+                </div>
+                <div class="profile-item">
+                    <p class="profile-label">Service</p>
+                    <p>23 years (joined at age 15)</p>
+                </div>
+                <div class="profile-item">
+                    <p class="profile-label">Assistant</p>
+                    <p>Xa Yoho (nicknamed "the goofball")</p>
+                </div>
+                <div class="profile-item">
+                    <p class="profile-label">Residence</p>
+                    <p>A room at the dormitory owned by Ayarakaz's surrogate father</p>
+                </div>
+                <div class="profile-item">
+                    <p class="profile-label">Location</p>
+                    <p>Keroni (near the top floor, with roof access)</p>
+                </div>
+                <div class="profile-item">
+                    <p class="profile-label">Favorite Food</p>
+                    <p>Fried chicken (boneless, no sauce, spicy with flavorful spices)</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Notable Cases</h2>
+            
+            <div class="case-card">
+                <h3>The Tissue Blanket Killer (TBK)</h3>
+                <p>Also known as Acustragulum (Latin fusion for "needle and blanket"), this is Heiki's most notorious case which lasted for two years. The killer harvested individual tissues from victims, keeping them in pink buckets to create human tissue blankets. By the time Heiki confronted him, Acustragulum had already sold over 9,000 blankets (each requiring three 5'5" people). Heiki discovered 94 unsold blankets at the crime scene, with the killer working on a 95th.</p>
+                <p>This is the only criminal Heiki has ever killed, resulting in severe injuries including damage to his shoulder that left a massive scar.</p>
+            </div>
+            
+            <div class="case-card">
+                <h3>The Dancer Case</h3>
+                <p>What began as a simple request from a father to help his crying dancer son evolved into one of Heiki's deepest cases, as the dancer was suffering from depression and anxiety.</p>
+            </div>
+            
+            <div class="case-card">
+                <h3>The Chocolate Kidnapper</h3>
+                <p>Heiki found a child's stolen chocolate in a kidnapper's pocket, leading to the discovery that the criminal was planning to use the treats to lure the child. The kidnapper had stolen all the child's chocolate as part of his plan.</p>
+            </div>
+            
+            <div class="case-card">
+                <h3>The Missing Cat</h3>
+                <p>Heiki's first ever solved case as a young detective – he successfully located someone's lost pet cat.</p>
+            </div>
+            
+            <div class="case-card">
+                <h3>The 20-Year Disappearance</h3>
+                <p>An unresolved case that still haunts Heiki – a person who went missing 20 years ago whom he has never been able to locate despite his best efforts.</p>
+            </div>
+            
+            <div class="case-card">
+                <h3>The Blinded Criminal</h3>
+                <p>In one of his more unusual tactical moments, Heiki threw chocolate at a criminal, which melted and temporarily blinded them, allowing for their capture.</p>
+            </div>
+            
+            <div class="case-card">
+                <h3>The Bank Robbery</h3>
+                <p>One of Heiki's fastest cases – he caught the robber of a world-class bank in just 7 minutes and 21 seconds.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Famous Quotes</h2>
+            
+            <div class="quote">"I'm sorry for this loss... at least he didn't get turned into a blanket, right? He died without pain... right? RIGHT?"</div>
+            <div class="quote">"HEY WAIT A SECOND IT'S 3 AM WHY AREN'T YOU SLEEPING, YOU HAVE SCHOOL TOMORROW."</div>
+            <div class="quote">[Simply asking for coffee instead of delivering a catchphrase during arrests]</div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Character Traits</h2>
+            
+            <div class="traits-grid">
+                <div class="trait-card">
+                    <h3>Dedicated Professional</h3>
+                    <p>Works day and night shifts, rarely sleeps, relies on caffeine (90-120 coffees daily) and takes 24 pills per day to maintain his lifestyle.</p>
+                </div>
+                
+                <div class="trait-card">
+                    <h3>Unstoppable Determination</h3>
+                    <p>Once fought with both legs fractured. Will continue fighting until death. After the protagonist's sacrifice (true ending), he shows no reaction but works both night and day shifts, refusing to throw away the protagonist's school notebooks.</p>
+                </div>
+                
+                <div class="trait-card">
+                    <h3>Protective Guardian</h3>
+                    <p>Extremely protective of the protagonist, whom he's cared for since they were 2 years old. Flies personally to collect the protagonist after their parents' deaths.</p>
+                </div>
+                
+                <div class="trait-card">
+                    <h3>Collaborative Worker</h3>
+                    <p>Contrary to the lone wolf stereotype, he's collaborative with other officers and asks for help when needed.</p>
+                </div>
+                
+                <div class="trait-card">
+                    <h3>Practical Dresser</h3>
+                    <p>Always wears his tie because he can use it to suffocate criminals if necessary. Keeps a pen in his mouth like a cigarette to both write notes and potentially stab someone if needed.</p>
+                </div>
+                
+                <div class="trait-card">
+                    <h3>Anti-Substance</h3>
+                    <p>Avoids alcohol and cigarettes, finding them "inhumane." His only addiction is caffeine.</p>
+                </div>
+                
+                <div class="trait-card">
+                    <h3>Sleep Enthusiast</h3>
+                    <p>Ironically, his favorite activity is sleeping. Owns the most customized and comfortable bed known to man, despite rarely getting to use it.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Daily Routine & Relationship with Protagonist</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Morning</h3>
+                    <p>Drops the protagonist at school, then disappears for work.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Throughout the Day</h3>
+                    <p>Calls every hour to check that the protagonist is safe. If he's unavailable, sends his assistant Xa to provide food, notes, and school supplies.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Evening</h3>
+                    <p>Tries to return home before midnight. If he makes it, he cooks his famous fried chicken. If not, he ensures meal-prepped food is available (with vegetarian options if needed).</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Late Night</h3>
+                    <p>Sometimes goes to the roof to scream for hours to release stress (can be discovered by the protagonist if they're awake at this time).</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Sundays</h3>
+                    <p>Takes the day off to help the protagonist with studies or whatever they need help with (unless there's an urgent case).</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Monthly Tradition</h3>
+                    <p>Once a month, takes the protagonist (and their friends) to a chocolate shop for custom Belgian chocolate-coated chocolate ice cream bars or anything they desire.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Special Occasions</h3>
+                    <p>Xa, Heiki, and the protagonist sometimes share fried chicken meals together. Bought a projector for the protagonist to prevent boredom, despite not owning a TV himself.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">PTSD & Coping Mechanisms</h2>
+            
+            <div class="ptsd-section">
+                <p>Heiki suffers from severe PTSD after the Tissue Blanket Killer case. His trauma manifests in several ways:</p>
+                <ul style="list-style-type: none; margin-top: 1rem; margin-left: 1rem;">
+                    <li>• Uses the protagonist as a coping mechanism, focusing on their innocence as an escape from his dark experiences</li>
+                    <li>• Avoids restaurants and never buys fried chicken from them, as the smell of dead chicken triggers flashbacks</li>
+                    <li>• Perfected his own fried chicken recipe so others won't ask him to order from restaurants</li>
+                    <li>• Conceals emotional outbursts, going to the roof to scream for hours when overwhelmed</li>
+                    <li>• Plays board games to maintain a sense of control</li>
+                    <li>• Keeps a personal diary where he documents his thoughts (which the protagonist can photocopy if they catch him away from home)</li>
+                    <li>• Experiences severe anxiety around blankets due to the TBK case, despite his love of sleeping</li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Morphic</h1>
-            <p>Morphic is an upcoming video game coming in the 2030's, developed by Zapped Zaid. This game is a turn-based character-driven RPG with social simulation, dungeon crawling, creature collection, and Action RPG elements. The game also includes a very intense storyline that adapts to your choices as a player.</p>
-            <a href="#characters" class="btn">Discover More</a>
-        </div>
-    </section>
-
-    <section id="characters" class="characters">
-        <div class="container">
-            <div class="section-header">
-                <h2>Character Bios</h2>
-                <p>Meet the main characters of Morphic</p>
+                
+                <p style="margin-top: 1.5rem;">When his coping mechanisms fail, Heiki simply smiles and gives up temporarily, saving his breakdown for his next rooftop "scream session." If caught during one of these sessions, he freezes completely before deflecting by scolding the protagonist for being awake past bedtime.</p>
             </div>
-            <div class="character-grid">
-                <div class="character-card">
-                    <div class="character-icon">👤</div>
-                    <h3>Protagonist</h3>
-                    <p>The avatar of You. Customize their looks and personality to your liking and explore. You have over 200 endings here for you to see. Enjoy your freedom.</p>
-                </div>
-                <div class="character-card">
-                    <div class="character-icon">⚔️</div>
-                    <h3>Ayarakaz Shin/Valor</h3>
-                    <p>The team leader... can you understand him or not? Who the flip knows? He climbs mountains in 5 minutes, fights bears and his goal? VALOR!!</p>
-                </div>
-                <div class="character-card">
-                    <div class="character-icon">🔍</div>
-                    <h3>Heiki Vorz</h3>
-                    <p>Your caring uncle who took you after your parents died of a stroke in the intro of the game... He's dedicated to the job of detective and is almost superhuman, has fried chicken though.</p>
-                </div>
-                <div class="character-card">
-                    <div class="character-icon">❓</div>
-                    <h3>Ruri Shousha</h3>
-                    <p>???[Play the game to find out LOL]</p>
-                </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">How He Stopped The Tissue Blanket Killer</h2>
+            
+            <div class="tbk-section">
+                <p>The final confrontation with Acustragulum (TBK) was one of the most harrowing experiences of Heiki's career:</p>
+                
+                <h3>The Raid</h3>
+                <p>Heiki led a squad of six officers into TBK's hideout. They split up with officers checking the basement and upper floors while Heiki remained on the main floor. Soon after separating, screams echoed through the building. Using an echolocation device, Heiki discovered one officer with their head separated from their body, meticulously cleaned of blood. More screams followed as the remaining officers were eliminated one by one.</p>
+                
+                <h3>The Confrontation</h3>
+                <p>Following the sound of a needle at work, Heiki entered a room to find TBK arranging a blanket made of skin while extracting tissues from a pink bucket. The killer's face was embedded with needles. When Heiki ordered him to surrender, TBK merely asked "say please?" before throwing a needle into Heiki's leg, dragging him across the room using yarn, shooting each of his fingers individually, and throwing him across the room.</p>
+                
+                <h3>The Pursuit</h3>
+                <p>Despite severe injuries, Heiki's adrenaline kept him going. He threw a corkboard at TBK, who stitched up his own wounds before fleeing to the roof. Heiki pursued him up the stairs despite his injuries.</p>
+                
+                <h3>The Final Showdown</h3>
+                <p>On the roof, TBK threw a human-tissue blanket at Heiki, triggering traumatic recognition of the smell. As TBK attempted to jump-attack him, Heiki punched him in the face, knocking out several teeth including canines. TBK stabbed these teeth into Heiki's spinal cord, paralyzing parts of his body while saying "you could have said please..."</p>
+                
+                <h3>The Kill</h3>
+                <p>With parts of his body paralyzed, Heiki drew a hidden second gun and shot TBK directly in the heart. As his body gave out, Heiki fell from the five-story building. TBK's final words were "you could have let me finish the 95th one and then killed me."</p>
+                
+                <h3>The Rescue</h3>
+                <p>Xa Yoho, Heiki's assistant, caught him mid-air despite having a fractured arm himself, saving Heiki's life in a dramatic fashion.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="setting" class="setting">
-        <div class="container">
-            <div class="setting-content">
-                <h2>The World of Keroni</h2>
-                <p>The game takes place in Keroni, a fictional nation with a new culture inspired by Japanese, Chinese, Indian, and Egyptian mythologies. Enjoy the streets' vast array of banana chips in Morphic.</p>
-                <p>But it is not deemed to be that simple. A murder series has taken over Keroni, and now you, along with your team of supernaturally powered humans who have been bestowed with the power of the morphic, try to figure out the mystery yourself.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="Transception Games">
-                </div>
-                <div class="about-text">
-                    <h2>About Transception Games</h2>
-                    <p>Transception Games was founded by Zapped Zaid with the vision of creating immersive and unique gaming experiences that blur the line between reality and fiction.</p>
-                    <p>With Morphic being our flagship title, we aim to redefine the RPG genre by combining elements from various gameplay styles and creating a truly adaptive narrative experience.</p>
-                    <a href="https://www.youtube.com/@ZappedZaid5" target="_blank" class="btn">Visit Our YouTube</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Morphic</h3>
-                    <p>A turn-based character-driven RPG coming in the 2030's.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#characters">Characters</a></li>
-                        <li><a href="#setting">Setting</a></li>
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="https://www.youtube.com/@ZappedZaid5" target="_blank">YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Transception Games. All rights reserved.</p>
-                <p>Website assistance by Vidyut</p>
-            </div>
-        </div>
-    </footer>
+        </section>
+        
+        <a href="#" class="back-button">Back to Main Page</a>
+    </div>
 </body>
 </html>
